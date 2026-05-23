@@ -1,21 +1,24 @@
-# Wedding React Website
 
-## Install
+# Akash & Harshita Wedding Website
 
-```bash
-npm install
-```
+## How to Use
 
-## Run
+1. Replace images inside `/assets`
+   - couple-main.jpg
+   - photo1.jpg
+   - photo2.jpg
+   - photo3.jpg
+   - photo4.jpg
 
-```bash
-npm run dev
-```
+2. Add your music file:
+   - assets/music.mp3
 
-## Build
+3. Run locally:
+   - Just open `index.html`
 
-```bash
-npm run build
-```
+4. Deploy on Vercel
+   - Push to GitHub
+   - Import project in Vercel
+   - Deploy
 
-## Deploy on GitHub Pages or Vercel
+No build step required.

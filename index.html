@@ -1,31 +1,1087 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow">
-  <meta property="og:title" content="Harshita & Akash — 20th June 2026">
-  <meta property="og:description"
-    content="Join us as we begin our forever. 20th June 2026 · Hotel Heaven Reegal, Wagholi">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshita & Akash — Wedding Celebration</title> 
+<meta name="robots" content="noindex,nofollow">
 
-  <title>Harshita & Akash — Wedding Celebration</title>
+<meta property="og:title" content="Harshita & Akash — 20th June 2026">
+<meta property="og:description" content="Join us as we begin our forever. 20th June 2026 · Accord Wildlife Pench Resort">
+<meta property="og:image" content="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/WhatsApp%20Image%202026-05-10%20at%2012.06.13%20AM%20(1).jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://harshitawedsakash.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon"
-    href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🌸&lt;/text&gt;&lt;/svg&gt;">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Pinyon+Script&display=swap"
-    rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+:root {
+  /* Locked on load — avoids layout shift when mobile browser chrome shows/hides */
+  --stable-vh: 100svh;
+  /* Soft Pastel & Gold Theme */
+  --cream:       #FDFBF7;
+  --cream-2:     #FAF5F0;
+  --cream-3:     #F2EAE1;
+  --sage:        #E2B4B1; /* Soft blush */
+  --sage-dark:   #BA7A76;
+  /* Deep rose */
+  --sage-deep:   #8A4F4C; /* Maroon */
+  --sage-light:  #F7DCDA;
+  --sage-pale:   #FFF9F8;
+  --sage-border: #EAC9C7;
+  --gold:        #D4AF37; /* Royal gold */
+  --gold-light:  #E8CE73;
+  --gold-pale:   #F7EFC8;
+  --text-dark:   #2C2A29;
+  --text-mid:    #5A5552;
+  --text-light:  #8C8480;
+  --border:      #F0E5DB;
+  --white:       #FFFFFF;
+  --shadow:      0 24px 64px -12px rgba(138,79,76,0.12);
+  --shadow-sm:   0 8px 24px rgba(138,79,76,0.06);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden}
+
+/* ── AUDIO BTN ─────────────────────────────────── */
+#audio-btn{position:fixed;bottom:28px;right:28px;z-index:9500;width:52px;height:52px;border-radius:50%;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .4s cubic-bezier(.175,.885,.32,1.275)}
+#audio-btn:hover{transform:scale(1.14)}
+#audio-btn svg{width:20px;height:20px;color:var(--sage-dark)}
+
+/* ── SHIMMER ───────────────────────────────────── */
+.shimmer{background:linear-gradient(105deg,var(--sage-deep) 15%,var(--sage-dark) 30%,var(--sage) 45%,#E8A09B 55%,var(--sage-dark) 70%,var(--sage-deep) 85%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4.5s linear infinite}
+@keyframes shimmer{to{background-position:200% center}}
+
+/* ── PETALS ────────────────────────────────────── */
+#petals-canvas{position:fixed;top:0;left:0;width:100%;height:100dvh;pointer-events:none;z-index:9000;opacity:0;transition:opacity 2s ease}
+#petals-canvas.active{opacity:1}
+
+/* ── REVEAL ────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1.2s ease-out,transform 1.2s ease-out}
+.reveal.revealed{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.12s}
+.reveal-d2{transition-delay:.24s}
+.reveal-d3{transition-delay:.36s}
+
+/* ── ENTRY GATE (Strictly Rule 1) ──────────────── */
+.entry-gate-container {
+  position: fixed;
+  inset: 0;
+  background-color: #1a0a0f; 
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.entry-gate-container video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#main-content{visibility:hidden; opacity:0; transition: opacity 0.8s ease;}
+#main-content.visible{visibility:visible;
+  opacity:1;}
+
+/* ── GLOBALS ───────────────────────────────────── */
+.sec-label{font-family:'Cormorant Garamond',serif;font-size:0.85rem;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.75rem; text-align:center;}
+.sec-heading{font-family:'Pinyon Script',cursive;font-size:clamp(3rem,9vw,5rem);line-height:1.1;color:var(--sage-dark);margin-bottom:.5rem; text-align:center;}
+.tc{text-align:center}
+
+/* ── HERO ──────────────────────────────────────── */
+#hero{position:relative;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--cream-2);padding:3rem 1rem}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 50% 0%,rgba(226,180,177,.18) 0%,transparent 65%)}
+.hero-corner{position:absolute;inset:1.25rem;pointer-events:none;z-index:2}
+.hero-corner::before,.hero-corner::after,.hero-corner span::before,.hero-corner span::after{content:'';position:absolute;width:54px;height:54px;border-color:var(--gold);border-style:solid;opacity:.7}
+.hero-corner::before{top:0;left:0;border-width:2px 0 0 2px}
+.hero-corner::after{top:0;right:0;border-width:2px 2px 0 0}
+.hero-corner span::before{bottom:0;left:0;border-width:0 0 2px 2px}
+.hero-corner span::after{bottom:0;right:0;border-width:0 2px 2px 0}
+
+.hero-card{position:relative;z-index:3;max-width:620px;width:100%;background:rgba(253,251,247,.93);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(212,175,55,.32);border-radius:2.2rem;padding:clamp(3rem,6vw,4rem) clamp(1.5rem,5vw,3rem);box-shadow:var(--shadow),0 0 0 4px rgba(226,180,177,.15) inset;text-align:center;display:flex;flex-direction:column;align-items:center;overflow:visible}
+
+.hero-icon{width:90px;height:90px;margin-bottom:1.5rem;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 6px 18px rgba(212,175,55,0.4));
+  object-fit:contain;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+.intro-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--sage-dark);letter-spacing:.02em;line-height:1.6;margin-bottom:2.5rem;font-style:italic}
+.parent-sub{font-family:'Cormorant Garamond',serif;font-size:.85rem;font-weight:600;letter-spacing:.15em;color:var(--text-mid);text-transform:uppercase;margin-top:.4rem;display:block}
+
+/* Fix applied here to prevent top/bottom clipping of cursive swashes */
+.couple-name{font-family:'Pinyon Script',cursive;font-size:clamp(3.5rem,11vw,5.5rem);font-weight:600;line-height:1.4;display:block;letter-spacing:.02em;width:100%;text-align:center;overflow:visible;white-space:nowrap;padding:0.2em 0}
+.amp-row{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem 0;width:100%}
+.amp-line{height:1px;width:44px;background:var(--border)}
+.amp{font-family:'Pinyon Script',cursive;font-size:2.6rem;color:var(--gold);line-height:1}
+
+.scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:10;opacity:0;animation:fadeIn 1.5s forwards 1.5s;cursor:pointer}
+.scroll-indicator span{font-family:'Cormorant Garamond',serif;font-size:.8rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sage-dark)}
+.scroll-indicator svg{width:20px;height:20px;color:var(--sage-dark);animation:bounce 2s infinite}
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}60%{transform:translateY(-4px)}}
+@keyframes fadeIn{to{opacity:1}}
+
+/* ── SCRATCH ───────────────────────────────────── */
+#scratch-section{padding:5rem 1.5rem 3rem;background:var(--cream);text-align:center;min-height:60vh;display:flex;flex-direction:column;justify-content:center;position:relative}
+.scratch-row{display:flex;justify-content:center;align-items:flex-start;gap:clamp(14px,4vw,30px);margin-top:2.5rem}
+.scratch-unit{display:flex;flex-direction:column;align-items:center;gap:12px}
+.scratch-lbl{font-family:'Cormorant Garamond',serif;font-size:.85rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--text-light)}
+
+/* Shake animation to prompt the user */
+@keyframes prompt-shake {
+  0%, 100% { transform: translateX(0);
+  }
+  5%, 15% { transform: translateX(-4px) rotate(-2deg); }
+  10%, 20% { transform: translateX(4px) rotate(2deg);
+  }
+  25% { transform: translateX(0); }
+}
+
+.scratch-card{position:relative;width:clamp(88px,23vw,126px);height:clamp(128px,28vw,172px);border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--white);box-shadow:var(--shadow);animation:prompt-shake 3.5s infinite ease-in-out;}
+/* Glow effect overrides the shake animation once scratched */
+.scratch-card.glow{box-shadow:0 0 0 2px var(--sage-light),0 16px 40px rgba(186,122,118,.28);transition:box-shadow .8s;
+  animation:none;}
+
+.scratch-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:var(--white);z-index:1}
+.sc-val{font-family:'Cormorant Garamond',serif;font-weight:600;font-style:italic;font-size:clamp(21px,5.5vw,32px);color:var(--sage-dark);line-height:1.1;text-align:center;padding:0 5px}
+.sc-rule{width:36px;height:1px;background:var(--sage-border);margin:5px auto 0}
+.scratch-canvas{position:absolute;inset:0;z-index:10;cursor:crosshair;touch-action:none}
+.scratch-hint{font-family:'Cormorant Garamond',serif;font-size:.75rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-deep);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+
+/* ── LOCKED CONTENT ─────────────────────────────── */
+#locked{display:none;opacity:0;transform:translateY(36px);transition:opacity 1.5s ease,transform 1.5s ease}
+#locked.unlocked{display:block}
+#locked.visible{opacity:1;transform:translateY(0)}
+
+/* ── COUNTDOWN ─────────────────────────────────── */
+#countdown-section{background:var(--cream);padding:3rem 1.5rem 5rem}
+.cd-card{max-width:460px;margin:0 auto;background:var(--white);border-radius:2.2rem;padding:3rem 2rem;border:1px solid var(--border);box-shadow:var(--shadow);text-align:center}
+.cd-quote{font-style:italic;font-size:1.15rem;line-height:1.65;color:var(--text-mid);margin-bottom:.5rem}
+.cd-script{font-family:'Pinyon Script',cursive;font-size:2.2rem;color:var(--sage-dark);line-height:1.2;display:block;margin-bottom:.25rem}
+.cd-date{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:600;letter-spacing:.22em;color:var(--sage-deep);text-transform:uppercase;margin-bottom:2.5rem;margin-top:1.25rem;display:block}
+.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.cd-unit{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.cd-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,9vw,3.4rem);font-weight:300;color:var(--text-dark);line-height:1;position:relative}
+.cd-num::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--sage-light),transparent)}
+.cd-lbl{font-family:'Cormorant Garamond',serif;font-size:.85rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sage-deep)}
+
+/* ── GALLERY / STORY ────────────────────────────── */
+#story-section{height:calc(var(--stable-vh) * 2.8);background:linear-gradient(180deg,var(--cream),var(--sage-pale) 30%,var(--cream) 70%);}
+.story-sticky{position:sticky;top:0;height:var(--stable-vh);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:32px 0 calc(24px + env(safe-area-inset-bottom, 0px));box-sizing:border-box}
+.story-text{text-align:center;max-width:600px;padding:0 24px 8px;width:100%;z-index:10;flex-shrink:0}
+.story-chapter{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:.3em;color:var(--sage-deep);background:var(--gold-pale);padding:6px 20px;border-radius:50px;margin:8px 0 10px;transition:opacity .4s;text-transform:uppercase}
+.story-p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,2.8vw,19px);color:var(--text-mid);line-height:1.65;transition:opacity .5s,transform .5s;margin-bottom:0}
+
+.ls-stack{position:relative;width:min(340px,88vw);flex:1 1 auto;min-height:min(420px,calc(var(--stable-vh) * .52));max-height:calc(var(--stable-vh) * .62);margin-top:.5rem;z-index:3}
+.ls-card{position:absolute;inset:0;background:#fff;border-radius:8px;padding:12px 12px 60px;box-shadow:0 8px 30px rgba(138,79,76,.15);transform:translateY(120vh) rotate(calc(var(--r)*2)) scale(.9);transition:transform 1.5s cubic-bezier(.16,1,.3,1);will-change:transform}
+.ls-card:nth-child(1){--r:-3.5deg;z-index:1}
+.ls-card:nth-child(2){--r:4.8deg;z-index:2}
+.ls-card:nth-child(3){--r:-2.6deg;z-index:3}
+.ls-card:nth-child(4){--r:5.2deg;z-index:4}
+.ls-card.visible{transform:translateY(0) rotate(var(--r)) scale(1)}
+.ls-card.stacked{transform:translateY(calc(var(--d,0)*-6px)) rotate(calc(var(--r)*.4)) scale(calc(1 - var(--d,0)*.03))}
+.ls-card img{width:100%;height:100%;object-fit:cover;display:block;border-radius:4px}
+.ls-caption{position:absolute;bottom:0;left:0;right:0;height:60px;display:flex;align-items:center;justify-content:center}
+.ls-caption span{font-family:'Pinyon Script',cursive;font-size:1.4rem;color:var(--sage-deep)}
+
+/* ── EVENTS ─────────────────────────────────────── */
+#events-section{padding:5rem 1.5rem 0;background:var(--cream);border-top:1px solid var(--border)}
+.day-header{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;letter-spacing:.2em;color:var(--sage-deep);text-align:center;margin:4rem 0 2rem;border-bottom:1px solid var(--sage-border);padding-bottom:1rem;text-transform:uppercase}
+
+.event-block{max-width:480px;margin:0 auto 4rem}
+.evt-img-wrap{border-radius:1rem;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm);background:var(--white);}
+.evt-img-wrap img{width:100%;
+  height:auto; display:block; object-fit:cover;}
+
+.evt-card{max-width:440px;margin:-2rem auto 0;position:relative;z-index:2;background:var(--white);border-radius:1.25rem;border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow)}
+.evt-info{padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center}
+.evt-name{font-family:'Pinyon Script',cursive;font-size:clamp(2rem,5.5vw,2.8rem);color:var(--sage-dark);line-height:1.15}
+.evt-time{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:600;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin:3px 0}
+.evt-desc{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text-mid);line-height:1.55; font-style:italic;}
+
+/* ── TIMELINE ────────────────────────────────────── */
+.timeline-section{padding:1rem 1.5rem 3rem;}
+.tl-wrap{max-width:480px;margin:0 auto;position:relative}
+.tl-line{position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--sage-border);}
+.tl-row{display:flex;align-items:flex-start;width:100%;margin-bottom:2.5rem;position:relative;
+  padding-left: 55px;}
+.tl-row:last-child{margin-bottom:0}
+.tl-content{width:100%;background:var(--white);padding:1.25rem;border-radius:1rem;box-shadow:var(--shadow-sm);border:1px solid var(--border);text-align:left;}
+.tl-dot{position:absolute;left:20px;top:1.5rem;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:var(--sage-dark);border:3px solid var(--white);box-shadow:0 0 0 3px var(--sage-border);z-index:2}
+.tl-time{font-family:'Cormorant Garamond',serif;font-size:.85rem;font-weight:600;letter-spacing:.15em;color:var(--gold);display:block;margin-bottom:6px;text-transform:uppercase}
+.tl-evt{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--sage-deep);display:block;line-height:1.2; margin-bottom: 4px;
+  font-weight: 600;}
+.tl-sub{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-mid);font-style:italic;}
+
+/* ── LOCATION ────────────────────────────────────── */
+#location-section{padding:6rem 1.5rem;background:var(--sage-pale);border-top:1px solid var(--border)}
+.loc-wrap{max-width:540px;margin:0 auto;}
+.loc-img{width:100%; border-radius:1.5rem; border:1px solid var(--sage-border); box-shadow:var(--shadow);
+  margin: 2.5rem 0;}
+.dir-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--sage-deep);color:#fff;text-decoration:none;padding:.85rem 2rem;border-radius:9999px;font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:all .3s;width:100%;max-width:300px;margin:0 auto;}
+.dir-btn:hover{background:var(--sage-dark);transform:translateY(-3px);box-shadow:0 8px 24px rgba(138,79,76,.25)}
+
+/* ── FOOTER ──────────────────────────────────────── */
+#footer-section{background:var(--cream-2);padding:6rem 1.5rem 2rem;text-align:center;
+  border-top: 1px solid var(--border);}
+.footer-msg{font-style:italic;font-size:1.15rem;line-height:1.75;max-width:580px;margin:0 auto 2.5rem;color:var(--text-mid)}
+.footer-name{font-family:'Pinyon Script',cursive;font-size:clamp(3.5rem,10vw,5rem);color:var(--sage-dark);display:block;line-height:1.1;margin:1.5rem 0}
+
+/* ── MANDATORY INVITE VIBES CREDIT ─────────────── */
+.invite-vibes-credit {
+  text-align: center;
+  padding: 18px 12px;
+  font-size: 13px;
+  opacity: 0.75;
+  animation: ivFloating 3s ease-in-out infinite;
+}
+
+.invite-vibes-credit a {
+  color: inherit;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+}
+
+.invite-vibes-credit a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+@keyframes ivFloating {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invite-vibes-credit {
+    animation: none;
+  }
+}
+
+@media(min-width:481px){
+  .tl-line{left:50%;transform:translateX(-50%)}
+  .tl-row{padding-left:0; justify-content:space-between; align-items:center;}
+  .tl-row:nth-child(odd) .tl-content{text-align:right;
+  margin-right: 55%;}
+  .tl-row:nth-child(even){flex-direction:row-reverse;}
+  .tl-row:nth-child(even) .tl-content{text-align:left; margin-left: 55%;}
+  .tl-dot{left:50%;
+  top:50%;}
+  .tl-content{width:45%;}
+}
+</style>
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
 
+<audio id="bg-audio" loop preload="auto">
+  <source src="assets/ReelAudio-14254.mp3" type="audio/mpeg">
+</audio>
+
+<button id="audio-btn" title="Toggle music">
+  <svg id="a-on" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+  </svg>
+  <svg id="a-off" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
+  </svg>
+</button>
+
+<canvas id="petals-canvas"></canvas>
+
+<div id="entry-gate" class="entry-gate-container" data-entry-gate>
+  <video
+    id="entry-video"
+    src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/Best%20Entry%20Video%20(49).mp4#t=0.001"
+    poster="placeholder-poster.jpg"
+    playsinline
+    webkit-playsinline
+    muted
+    preload="auto"
+    data-autoplay-fix="true"
+  ></video>
+</div>
+
+<div id="main-content">
+
+  <section id="hero">
+    <div class="hero-corner"><span></span></div>
+    <div class="hero-card">
+
+      <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Hemadri%20%26%20Ravindra/GAnesha%20Icon.png" alt="Ganesha Icon" class="hero-icon">
+
+      <p class="intro-text">With love and blessing,<br>Mrs and Mr Tandale<br><br>cordially invite you to the wedding celebration of their daughter</p>
+
+      <span class="couple-name shimmer">Harshita</span>
+
+      <div class="amp-row">
+        <div class="amp-line"></div>
+        <span class="amp">with</span>
+        <div class="amp-line"></div>
+      </div>
+      
+      <span class="couple-name shimmer">Akash</span>
+            <p class="intro-text">Son of Mrs and Mr Lende</p>
+    </div>
+
+    <div class="scroll-indicator" onclick="document.getElementById('scratch-section').scrollIntoView({behavior:'smooth'})">
+      <span>Scroll to Reveal</span>
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+    </div>
+  </section>
+
+  <section id="scratch-section" class="reveal">
+    <h2 class="sec-heading">Save the Date</h2>
+    <p style="font-style:italic;color:var(--text-light);font-size:1.05rem;margin-top:.25rem">Scratch below to reveal our wedding date</p>
+
+    <div class="scratch-row">
+      <div class="scratch-unit">
+        <span class="scratch-lbl">Month</span>
+        <div class="scratch-card" id="card-1">
+          <div class="scratch-inner"><div class="sc-val">June</div><div class="sc-rule"></div></div>
+          <canvas class="scratch-canvas" id="sc-1"></canvas>
+  
+        </div>
+        <span class="scratch-hint" id="hint-1">↑ scratch</span>
+      </div>
+      <div class="scratch-unit">
+        <span class="scratch-lbl">Day</span>
+        <div class="scratch-card" id="card-2">
+          <div class="scratch-inner"><div class="sc-val">20</div><div class="sc-rule"></div></div>
+          <canvas class="scratch-canvas" id="sc-2"></canvas>
+        </div>
+        <span class="scratch-hint" id="hint-2" style="animation-delay:.18s">↑ scratch</span>
+      
+      </div>
+      <div class="scratch-unit">
+        <span class="scratch-lbl">Year</span>
+        <div class="scratch-card" id="card-3">
+          <div class="scratch-inner"><div class="sc-val">2026</div><div class="sc-rule"></div></div>
+          <canvas class="scratch-canvas" id="sc-3"></canvas>
+        </div>
+        <span class="scratch-hint" id="hint-3" style="animation-delay:.36s">↑ scratch</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="locked">
+
+    <section id="countdown-section">
+      <div class="cd-card">
+  
+        <p class="cd-quote">A lifetime of togetherness begins with one sacred step</p>
+        <span class="cd-script">The Wedding</span>
+        <span class="cd-date">20 · 06 · 2026  ·  Pench</span>
+        <div class="cd-grid">
+          <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-lbl">Days</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-lbl">Hours</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-mins">00</span><span class="cd-lbl">Mins</span></div>
+       
+          <div class="cd-unit"><span class="cd-num" id="cd-secs">00</span><span class="cd-lbl">Secs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story-section">
+      <div class="story-sticky">
+        <div class="story-text">
+          <span class="sec-label">Our Story</span>
+          <h2 class="sec-heading">Forever Us</h2>
+          <span class="story-chapter" id="story-chapter">Memories together</span>
+          <p class="story-p" id="story-p">From Scotland to London, building a lifetime of beautiful moments.</p>
+        </div>
+        <div class="ls-stack" id="ls-stack">
+          <div class="ls-card" data-idx="0">
+            <img src="assets/download (1).jpeg" alt="Couple memory 1" loading="eager">
+            <div class="ls-caption"><span>Memories together</span></div>
+          </div>
+          <div class="ls-card" data-idx="1">
+            <img src="assets/download (2).jpeg" alt="Couple memory 2" loading="eager">
+            <div class="ls-caption"><span>Joy and laughter</span></div>
+          </div>
+          <div class="ls-card" data-idx="2">
+            <img src="assets/download (3).jpeg" alt="Couple memory 3" loading="eager">
+            <div class="ls-caption"><span>Our beautiful forever</span></div>
+          </div>
+          <div class="ls-card" data-idx="3">
+     
+            <img src="assets/download.jpeg" alt="Couple memory 4" loading="eager">
+            <div class="ls-caption"><span>Written in the stars</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="events-section">
+      <div class="tc reveal" style="margin-bottom:1rem">
+        <span class="sec-label">The Celebrations Unfold</span>
+        <h2 class="sec-heading">Festivities</h2>
+      </div>
+
+    
+      <h3 class="day-header reveal">30 June 2026</h3>
+      
+      <section class="timeline-section reveal">
+        <div class="tl-wrap">
+          <div class="tl-line"></div>
+          
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+             
+              <span class="tl-time">9:30 AM</span>
+              <span class="tl-evt">Check-in & Welcome</span>
+              <span class="tl-sub">“Step into the movie of Harshita & Akash’s lives.”</span>
+            </div>
+          </div>
+          
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+ 
+            <div class="tl-content">
+              <span class="tl-time">1:00 PM</span>
+              <span class="tl-evt">Pool Party & Lunch</span>
+              <span class="tl-sub">Lunch followed by exciting activities.</span>
+            </div>
+          </div>
+
+          <div class="tl-row">
+  
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-time">5:00 PM</span>
+              <span class="tl-evt">Sangeet Sundowner</span>
+              <span class="tl-sub">Golden-hued photoshoot with family.</span>
+            </div>
+          </div>
+
+    
+        </div>
+      </section>
+
+      <div class="event-block reveal">
+        <div class="evt-img-wrap">
+          <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/128.png" alt="Sangeet Night" loading="eager">
+        </div>
+        <div class="evt-card reveal reveal-d1">
+          <div class="evt-info">
+            <span class="evt-name">Sangeet Night</span>
+            <span class="evt-time">7:00 PM</span>
+ 
+            <span class="evt-desc">“Dhoom Machale, because the shaadi is on!”</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-block reveal">
+        <div class="evt-img-wrap">
+          <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/129.png" alt="After Party" loading="eager">
+        </div>
+        <div class="evt-card reveal reveal-d1">
+        
+          <div class="evt-info">
+            <span class="evt-name">After Party</span>
+            <span class="evt-time">11:00 PM</span>
+            <span class="evt-desc">“The night is young, the beats are loud, and the party is just getting started!”</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="day-header reveal" style="margin-top:5rem;">20 June 2026</h3>
+
+      <div class="event-block reveal">
+        <div class="evt-img-wrap">
+          <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/130.png" alt="Carnival" loading="eager">
+        </div>
+        <div class="evt-card reveal reveal-d1">
+          <div class="evt-info">
+            <span class="evt-name">Carnival & Barati Welcome</span>
+            <span class="evt-time">11:00 AM</span>
+            <span class="evt-desc">Carnival with colour, games, and laughter, followed by lunch and Barati welcome.</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="timeline-section reveal">
+        <div class="tl-wrap">
+          <div class="tl-line"></div>
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+    
+              <span class="tl-time">4:00 PM</span>
+              <span class="tl-evt">Wedding Sundowner</span>
+              <span class="tl-sub">Shadi photoshoot sundowner with stardust.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="event-block reveal">
+        <div class="evt-img-wrap">
+          <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/131.png" alt="Barat" loading="eager">
+        </div>
+        <div class="evt-card reveal reveal-d1">
+          <div class="evt-info">
+            <span class="evt-name">Barat</span>
+            <span class="evt-time">6:00 PM</span>
+            <span class="evt-desc">“Dilwale dulhaaniya le ja rahe hain, and the beat is on!”</span>
+       
+          </div>
+        </div>
+      </div>
+
+      <div class="event-block reveal">
+        <div class="evt-img-wrap">
+          <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/132.png" alt="Reception" loading="eager">
+        </div>
+        <div class="evt-card reveal reveal-d1">
+          <div class="evt-info">
+            <span class="evt-name">Reception</span>
+          
+            <span class="evt-time">7:00 PM</span>
+            <span class="evt-desc">“Family, love, and shaadi — full filmy package!”</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-block reveal">
+        <div class="evt-img-wrap">
+          <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/133.png" alt="Pheras" loading="eager">
+        </div>
+        <div class="evt-card reveal reveal-d1" style="border-color:var(--gold-light); background:linear-gradient(135deg, var(--sage-pale), var(--white));">
+          <div class="evt-info">
+            <span class="evt-name" style="color:var(--sage-deep); font-size:clamp(2.4rem,6vw,3.2rem)">Pheras</span>
+            <span class="evt-time">9:00 PM</span>
+            <span class="evt-desc">The sacred vows to begin our forever.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="day-header reveal" style="margin-top:5rem;">2 July 2026</h3>
+      <section class="timeline-section reveal">
+        <div class="tl-wrap">
+          <div class="tl-line"></div>
+    
+          <div class="tl-row">
+            <div class="tl-dot" style="background:var(--text-mid)"></div>
+            <div class="tl-content">
+              <span class="tl-time">After Breakfast</span>
+              <span class="tl-evt">Check-out</span>
+              <span class="tl-sub">“Finale ho gaya, par memories everlasting hain!”</span>
+            </div>
+  
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <section id="location-section" class="reveal tc">
+      <div class="loc-wrap">
+        <span class="sec-label" style="color:var(--sage-deep)">The Destination</span>
+        <h2 class="sec-heading">Venue</h2>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--text-dark); margin-top:1rem; font-weight:500;">Accord Wildlife Pench Resort</h3>
+        
+        <img class="loc-img reveal" src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Meenal%20%26%20Avinash%201st%20july/f42b77b0-fd74-4c53-aaab-f14019023302.avif" alt="Accord wildlife pench resort" loading="lazy">
+        
+        <a class="dir-btn" href="https://maps.google.com/?q=Accord+Wildlife+Pench+Resort" target="_blank" rel="noopener noreferrer">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Get Directions
+        </a>
+      </div>
+    </section>
+
+    <section id="footer-section">
+      <div class="tc reveal">
+        <p class="footer-msg">
+          Your presence will turn this real-life romance into a blockbuster we’ll never forget.<br><br>
+          Come, dance, laugh, and celebrate with us in true Bollywood style!
+        </p>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text-mid);display:block;margin-bottom:1rem;">Warm regards,</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--sage-dark);font-style:italic;display:block;">Mrs Anjana and Mr Santosh Sahu and family</span>
+        
+        <span class="footer-name" style="margin-top:3rem;">Harshita & Akash</span>
+      </div>
+    </section>
+
+    <footer class="invite-vibes-credit">
+      <a href="https://www.instagram.com/invitevibes_" target="_blank" rel="noopener noreferrer">
+        Made with ❤️ by Invite Vibes
+      </a>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════
+   STABLE VIEWPORT — prevents story section jump when
+   mobile browser address bar shows / hides on scroll
+══════════════════════════════════════════════════ */
+(function lockStableViewport() {
+  var lastWidth = window.innerWidth;
+  function setStableVh() {
+    document.documentElement.style.setProperty('--stable-vh', window.innerHeight + 'px');
+    lastWidth = window.innerWidth;
+  }
+  setStableVh();
+  window.addEventListener('orientationchange', function () {
+    setTimeout(setStableVh, 150);
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth !== lastWidth) setStableVh();
+  }, { passive: true });
+})();
+
+/* ══════════════════════════════════════════════════
+   ENTRY VIDEO — STRICT iOS FIX (Rule 1)
+══════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function () {
+  var v = document.querySelector('[data-autoplay-fix="true"]');
+  if (!v) return;
+  
+  var gate = document.querySelector('[data-entry-gate]') 
+    || v.closest('.entry-gate, .gate, .intro-screen, #gate, #intro') 
+    || v.parentElement;
+    
+  var mainContent = document.getElementById('main-content');
+  
+  // Step 1: Paint the first frame on iOS without playing.
+  v.load();
+  
+  // Step 2: User taps the gate — this is the ONLY thing that starts the video.
+  gate.addEventListener('click', function onGateTap () {
+    gate.removeEventListener('click', onGateTap);
+    v.currentTime = 0;
+    
+    var playAttempt = v.play();
+    if (playAttempt !== undefined) {
+      playAttempt.catch(function () {
+        // If strict browser policy blocks it, require a second tap
+        gate.addEventListener('click', function retryTap () {
+          gate.removeEventListener('click', retryTap);
+          v.play();
+        }, { once: true });
+      });
+    }
+    
+    // Attempt to start audio too
+    if(window.setAudio) window.setAudio(true);
+  }, { once: true });
+
+  // Step 3: Video finishes — this is the ONLY thing that dismisses the gate.
+  v.addEventListener('ended', function () {
+    gate.style.transition = 'opacity 0.8s ease';
+    gate.style.opacity = '0';
+    setTimeout(function () {
+      gate.style.display = 'none';
+      gate.style.visibility = 'hidden';
+      if (mainContent) {
+        mainContent.classList.add('visible');
+        
+        // --- TRIGGER PETALS TO SHOW AFTER GATE CLOSES ---
+        document.getElementById('petals-canvas').classList.add('active');
+
+        initReveal(); 
+        initScratch();
+        document.body.style.overflow = 'auto';
+      }
+      document.dispatchEvent(new Event('gateEnded'));
+    }, 800);
+  });
+});
+
+/* ══════════════════════════════════════════════════
+   AUDIO
+══════════════════════════════════════════════════ */
+const bgAudio = document.getElementById('bg-audio');
+const aOn = document.getElementById('a-on'), aOff = document.getElementById('a-off');
+let playing = false;
+
+window.setAudio = function(on) {
+  if (on) {
+    if (bgAudio.readyState === 0) bgAudio.load();
+    bgAudio.play().then(() => { playing=true; aOn.style.display='block'; aOff.style.display='none'; }).catch(()=>{});
+  } else {
+    bgAudio.pause(); playing=false; aOn.style.display='none'; aOff.style.display='block';
+  }
+}
+document.getElementById('audio-btn').addEventListener('click', () => window.setAudio(!playing));
+
+/* ══════════════════════════════════════════════════
+   AUDIO — PAUSE/RESUME ON TAB VISIBILITY
+   Pauses background music when tab is hidden,
+   resumes when tab becomes visible — but ONLY if
+   audio was playing (respects manual mute by user).
+══════════════════════════════════════════════════ */
+(function audioVisibility() {
+  let pausedByVisibility = false;
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      // Tab/window hidden — pause if currently playing
+      if (playing && !bgAudio.paused) {
+        pausedByVisibility = true;
+        bgAudio.pause();
+        // NOTE: do NOT update `playing` flag or button icons —
+        // we want to silently resume when user returns.
+      }
+    } else {
+      // Tab/window visible again — resume only if we paused it
+      if (pausedByVisibility) {
+        pausedByVisibility = false;
+        bgAudio.play().catch(() => {});
+      }
+    }
+  });
+})();
+
+/* ══════════════════════════════════════════════════
+   HERO AUTO-SCROLL
+   After the entry gate ends, if the user does not
+   interact for 5 seconds, smoothly & slowly scroll
+   to the midpoint of the scratch (second) section.
+   Any user input (wheel / touch / key / click)
+   cancels both the pending timer AND any in-progress
+   animation.
+══════════════════════════════════════════════════ */
+(function setupHeroAutoScroll() {
+  let timer = null;
+  let rafId = null;
+  let scrollBehaviorPrev = '';
+  let animating = false;
+  const html = document.documentElement;
+  const cancelEvents = ['wheel', 'touchstart', 'keydown', 'mousedown', 'click'];
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function detach() {
+    cancelEvents.forEach(e => window.removeEventListener(e, onUserInput, true));
+  }
+
+  function stopAnim() {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    if (animating) {
+      html.style.scrollBehavior = scrollBehaviorPrev;
+      animating = false;
+    }
+  }
+
+  function cancelAll() {
+    if (timer) { clearTimeout(timer); timer = null; }
+    stopAnim();
+    detach();
+  }
+
+  function onUserInput() {
+    // User took control — abandon everything immediately.
+    cancelAll();
+  }
+
+  function trigger() {
+    timer = null;
+    const scratch = document.getElementById('scratch-section');
+    if (!scratch) { cancelAll(); return; }
+
+    const rect = scratch.getBoundingClientRect();
+    // Land the user at the halfway point of the scratch section,
+    // centered in the viewport.
+    const targetY = Math.max(
+      0,
+      window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2
+    );
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+
+    if (Math.abs(diff) < 4) { cancelAll(); return; }
+
+    // Disable CSS smooth-scroll so our rAF animation isn't fighting it.
+    scrollBehaviorPrev = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    animating = true;
+
+    const startTime = performance.now();
+    const duration = 2800; // ~2.8s — slow and gentle
+
+    function step(now) {
+      const t = Math.min(1, (now - startTime) / duration);
+      window.scrollTo(0, startY + diff * easeInOutCubic(t));
+      if (t < 1) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        stopAnim();
+        detach();
+      }
+    }
+    rafId = requestAnimationFrame(step);
+  }
+
+  function arm() {
+    // Start fresh
+    cancelAll();
+    cancelEvents.forEach(e =>
+      window.addEventListener(e, onUserInput, { passive: true, capture: true })
+    );
+    timer = setTimeout(trigger, 5000);
+  }
+
+  // Entry gate dispatches this once the intro video finishes
+  // and the main content becomes visible.
+  document.addEventListener('gateEnded', arm);
+})();
+
+/* ══════════════════════════════════════════════════
+   FLOWING PETALS ANIMATION (MINIMAL)
+══════════════════════════════════════════════════ */
+(function initPetals() {
+  const canvas = document.getElementById('petals-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, {passive: true});
+
+  // Soft Pastel & Gold Palette for Meenal & Avinash
+  const COLORS = ['#F7DCDA','#EAC9C7','#E2B4B1','#FFFFFF','#F7EFC8'];
+  const petals = [];
+  
+  // MINIMAL COUNT: Drastically reduced for a very subtle effect
+  const COUNT  = window.innerWidth < 600 ? 12 : 25;
+
+  class Petal {
+      constructor() { this.reset(true); }
+      reset(initial) {
+          this.x  = Math.random() * canvas.width;
+          this.y  = initial ? Math.random() * canvas.height * 2 - canvas.height : -20;
+          this.r  = 4 + Math.random() * 5;
+          this.vx = (Math.random() - 0.5) * 0.8;
+          this.vy = 0.6 + Math.random() * 1.2;
+          this.rot= Math.random() * Math.PI * 2;
+          this.drot=(Math.random()-0.5)*0.04;
+          this.color= COLORS[Math.floor(Math.random()*COLORS.length)];
+          
+          // MINIMAL OPACITY: Lowered alpha so they are more transparent
+          this.alpha= 0.3 + Math.random() * 0.4;
+      }
+      update() {
+          // Sine wave flowing horizontal motion
+          this.x  += this.vx + Math.sin(this.y * 0.01) * 0.4;
+          this.y  += this.vy;
+          this.rot+= this.drot;
+          if (this.y > canvas.height + 20) this.reset(false);
+      }
+      draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.rot);
+          ctx.globalAlpha = this.alpha;
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, this.r * 0.55, this.r, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+      }
+  }
+
+  for (let i = 0; i < COUNT; i++) petals.push(new Petal());
+  function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      petals.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ══════════════════════════════════════════════════
+   SCRATCH CARDS
+══════════════════════════════════════════════════ */
+let doneCount = 0;
+function initScratch() {
+  ['sc-1','sc-2','sc-3'].forEach((id,i)=>{
+    setupScratch(id, i+1, ()=>{
+      doneCount++;
+      document.getElementById('hint-'+(i+1)).style.opacity='0';
+      document.getElementById('card-'+(i+1)).classList.add('glow');
+      if (doneCount===3) onAllScratched();
+    });
+  });
+}
+
+function setupScratch(canvasId, num, onDone) {
+  const cvs = document.getElementById(canvasId);
+  const wrap = cvs.parentElement;
+  const ctx = cvs.getContext('2d',{willReadFrequently:true});
+  const dpr = devicePixelRatio||1;
+  let ready=false, done=false, drawing=false;
+
+  function build() {
+    const r=wrap.getBoundingClientRect(), W=r.width, H=r.height;
+    cvs.width=W*dpr; cvs.height=H*dpr;
+    ctx.scale(dpr,dpr);
+    const g=ctx.createLinearGradient(0,0,W,H);
+    g.addColorStop(0,'#EAC9C7'); g.addColorStop(.5,'#BA7A76'); g.addColorStop(1,'#EAC9C7');
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    ctx.font="italic 600 13px 'Cormorant Garamond'";
+    ctx.fillStyle='rgba(255,255,255,.9)'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('scratch me',W/2,H/2);
+    ctx.globalCompositeOperation='destination-out';
+    ctx.lineJoin='round';
+    ctx.lineCap='round';
+    ctx.lineWidth=Math.max(42,W*.36);
+    ready=true;
+  }
+
+  function pos(e) {
+    const r=cvs.getBoundingClientRect(), s=e.touches?e.touches[0]:e;
+    return {x:s.clientX-r.left,y:s.clientY-r.top};
+  }
+
+  function start(e){
+    if(!ready||done)return;
+    drawing=true;
+    e.preventDefault();
+    wrap.style.animation = 'none';
+    // Stop shaking once the user starts scratching
+    const p=pos(e);
+    ctx.beginPath();
+    ctx.moveTo(p.x,p.y);
+  }
+  function move(e){if(!drawing||done)return;e.preventDefault();const p=pos(e);ctx.lineTo(p.x,p.y);ctx.stroke();ctx.beginPath();ctx.moveTo(p.x,p.y);check()}
+  function end(){drawing=false;if(ready&&!done)ctx.beginPath()}
+
+  function check(){
+    if(done)return;
+    const d=ctx.getImageData(0,0,cvs.width,cvs.height).data;
+    let clear=0;
+    for(let i=3;i<d.length;i+=4)if(d[i]===0)clear++;
+    if(clear/(cvs.width*cvs.height)>.48){
+      done=true;
+      cvs.style.transition='opacity .8s'; cvs.style.opacity='0';
+      setTimeout(()=>{cvs.style.display='none';onDone();},800);
+    }
+  }
+
+  cvs.addEventListener('mousedown',start);
+  cvs.addEventListener('mousemove',move);
+  window.addEventListener('mouseup',end);
+  cvs.addEventListener('touchstart',start,{passive:false});
+  cvs.addEventListener('touchmove',move,{passive:false});
+  window.addEventListener('touchend',end);
+  setTimeout(build,100);
+}
+
+function onAllScratched() {
+  const el=document.getElementById('locked');
+  el.classList.add('unlocked');
+  setTimeout(()=>{
+    el.classList.add('visible');
+    initCountdown(); initPolaroids(); initReveal();
+    const COLS=['#E2B4B1','#FDFBF7','#D4AF37','#BA7A76'];
+    const opts={colors:COLS,zIndex:99999};
+    setTimeout(()=>confetti({...opts,particleCount:200,spread:100,origin:{x:.5,y:.65}}),100);
+    setTimeout(()=>confetti({...opts,particleCount:120,angle:60,spread:65,origin:{x:0,y:.7}}),400);
+    setTimeout(()=>confetti({...opts,particleCount:120,angle:120,spread:65,origin:{x:1,y:.7}}),600);
+    setTimeout(()=>{
+      document.getElementById('countdown-section').scrollIntoView({behavior:'smooth',block:'center'});
+    }, 2500);
+  },50);
+}
+
+/* ══════════════════════════════════════════════════
+   COUNTDOWN — July 1, 2026
+══════════════════════════════════════════════════ */
+function initCountdown() {
+  const target = new Date('June 20, 2026 11:00:00 GMT+0530');
+  const els = {d:document.getElementById('cd-days'),h:document.getElementById('cd-hours'),m:document.getElementById('cd-mins'),s:document.getElementById('cd-secs')};
+  function tick(){
+    const diff=target-Date.now();
+    if(diff<=0){document.querySelector('.cd-grid').innerHTML="<p style='grid-column:1/-1;font-family:\"Pinyon Script\",cursive;font-size:3rem;color:var(--sage-dark)'>The Celebration Begins! 🌸</p>";return;}
+    const fmt=n=>String(n).padStart(2,'0');
+    els.d.textContent=fmt(Math.floor(diff/86400000));
+    els.h.textContent=fmt(Math.floor((diff%86400000)/3600000));
+    els.m.textContent=fmt(Math.floor((diff%3600000)/60000));
+    els.s.textContent=fmt(Math.floor((diff%60000)/1000));
+  }
+  tick(); setInterval(tick,1000);
+}
+
+/* ══════════════════════════════════════════════════
+   POLAROID SCROLL
+══════════════════════════════════════════════════ */
+const storyData = [
+  {chapter:'Memories together', text:'From Scotland to London, building a lifetime of beautiful moments.'},
+  {chapter:'Joy and laughter', text:'Every day with you is a celebration of love, laughter, and togetherness.'},
+  {chapter:'Our beautiful forever', text:'Surrounded by blessings and love, our beautiful forever begins.'},
+  {chapter:'Written in the stars', text:'Two souls, one incredible journey. Written in the stars, forever in our hearts.'}
+];
+
+function initPolaroids() {
+  const section = document.getElementById('story-section');
+  if (!section) return;
+  const cards = Array.from(document.querySelectorAll('.ls-card'));
+  let last = -1, ticking = false;
+
+  function apply(idx) {
+    if (idx===last) return;
+    last=idx;
+    cards.forEach((c,i)=>{
+      c.classList.remove('visible','stacked');
+      c.style.removeProperty('--d');
+      if (i<idx){c.style.setProperty('--d',String(idx-i));c.classList.add('stacked');}
+      else if (i===idx) c.classList.add('visible');
+    });
+    const chEl=document.getElementById('story-chapter');
+    const pEl=document.getElementById('story-p');
+    if (chEl && storyData[idx]) { chEl.textContent=storyData[idx].chapter; pEl.textContent=storyData[idx].text; }
+  }
+
+  apply(0);
+  function getStableInnerHeight() {
+    const v = getComputedStyle(document.documentElement).getPropertyValue('--stable-vh').trim();
+    const n = parseFloat(v);
+    return n > 0 ? n : window.innerHeight;
+  }
+  window.addEventListener('scroll',()=>{
+    if(!ticking){ requestAnimationFrame(()=>{
+      const top=section.getBoundingClientRect().top+scrollY;
+      const range=Math.max(1,section.offsetHeight-getStableInnerHeight());
+      const raw=(scrollY-top)/range;
+      apply(Math.round(Math.max(0,Math.min(1,raw))*(cards.length-1)));
+      ticking=false;
+    }); ticking=true; }
+  },{passive:true});
+}
+
+/* ══════════════════════════════════════════════════
+   REVEAL ON SCROLL
+══════════════════════════════════════════════════ */
+function initReveal() {
+  const items = document.querySelectorAll('.reveal:not(.revealed)');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); } });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  items.forEach(el=>io.observe(el));
+}
+</script>
+</body>
 </html>

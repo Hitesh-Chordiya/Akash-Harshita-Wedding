@@ -98,19 +98,25 @@ background:linear-gradient(
   inset: 0;
   background-color: #20354A;
   z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
-.entry-gate-container video {
+/* Clipping frame — keeps cover-scaled video inside the viewport (no overflow) */
+.entry-video-frame {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  background: #20354A;
+}
+.entry-video-frame video {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  max-width: 100%;
-  max-height: 100%;
-  background: #20354A;
+  object-fit: cover;
+  object-position: center center;
+  -webkit-object-fit: cover;
   pointer-events: none;
 }
 .entry-play-overlay {
@@ -521,15 +527,17 @@ transparent 65%
 <canvas id="petals-canvas"></canvas>
 
 <div id="entry-gate" class="entry-gate-container" data-entry-gate>
-  <video
-    id="entry-video"
-    src="assets/Akash side small.mp4"
-    poster="placeholder-poster.jpg"
-    playsinline
-    webkit-playsinline
-    muted
-    preload="auto"
-  ></video>
+  <div class="entry-video-frame" aria-hidden="true">
+    <video
+      id="entry-video"
+      src="assets/Akash side small.mp4"
+      poster="placeholder-poster.jpg"
+      playsinline
+      webkit-playsinline
+      muted
+      preload="auto"
+    ></video>
+  </div>
   <div id="entry-play-overlay" class="entry-play-overlay">
     <div class="entry-play-card">
       <div class="entry-play-corners"><span></span></div>

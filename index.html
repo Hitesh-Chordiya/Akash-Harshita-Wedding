@@ -95,25 +95,43 @@ background:linear-gradient(
 /* ── ENTRY GATE (Strictly Rule 1) ──────────────── */
 .entry-gate-container {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  height: var(--stable-vh, 100dvh);
   background-color: #20354A;
   z-index: 9999;
   overflow: hidden;
 }
-/* Clipping frame — keeps cover-scaled video inside the viewport (no overflow) */
+body.entry-active {
+  overflow: hidden;
+  height: 100%;
+  height: var(--stable-vh, 100dvh);
+}
+/* Clipping frame — video is centered & scaled to cover (no bleed on iOS) */
 .entry-video-frame {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background: #20354A;
 }
 .entry-video-frame video {
   display: block;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none;
+  max-height: none;
+  transform: translate(-50%, -50%);
   object-fit: cover;
   object-position: center center;
   -webkit-object-fit: cover;
@@ -856,8 +874,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!v || !playBtn) return;
 
+  var videoFrame = document.querySelector('.entry-video-frame');
+
+  function syncEntryViewport() {
+    var h = window.innerHeight + 'px';
+    gate.style.height = h;
+    if (videoFrame) videoFrame.style.height = h;
+    document.documentElement.style.setProperty('--stable-vh', h);
+  }
+
+  function fitEntryVideo() {
+    if (!videoFrame || !v.videoWidth || !v.videoHeight) return;
+
+    var fw = videoFrame.clientWidth;
+    var fh = videoFrame.clientHeight;
+    if (!fw || !fh) return;
+
+    var scale = Math.max(fw / v.videoWidth, fh / v.videoHeight);
+    var w = Math.ceil(v.videoWidth * scale);
+    var h = Math.ceil(v.videoHeight * scale);
+
+    v.style.width = w + 'px';
+    v.style.height = h + 'px';
+    v.style.minWidth = '0';
+    v.style.minHeight = '0';
+    v.style.top = '50%';
+    v.style.left = '50%';
+    v.style.transform = 'translate(-50%, -50%)';
+  }
+
+  syncEntryViewport();
+  window.addEventListener('resize', function () {
+    syncEntryViewport();
+    fitEntryVideo();
+  }, { passive: true });
+  window.addEventListener('orientationchange', function () {
+    setTimeout(function () {
+      syncEntryViewport();
+      fitEntryVideo();
+    }, 200);
+  });
+
+  v.addEventListener('loadedmetadata', fitEntryVideo);
+  v.addEventListener('playing', function () {
+    syncEntryViewport();
+    fitEntryVideo();
+  }, { once: true });
+  if (v.readyState >= 1) fitEntryVideo();
+
   document.body.classList.add('entry-active');
-  document.body.style.overflow = 'hidden';
   var started = false;
 
   function openMainSite() {
@@ -871,7 +936,9 @@ document.addEventListener('DOMContentLoaded', function () {
       initReveal();
       initScratch();
       document.body.classList.remove('entry-active');
-      document.body.style.overflow = 'auto';
+      document.body.style.removeProperty('height');
+      gate.style.removeProperty('height');
+      if (videoFrame) videoFrame.style.removeProperty('height');
       document.dispatchEvent(new Event('gateEnded'));
     }, 800);
   }
@@ -881,6 +948,9 @@ document.addEventListener('DOMContentLoaded', function () {
     started = true;
 
     if (playOverlay) playOverlay.classList.add('is-hidden');
+
+    syncEntryViewport();
+    fitEntryVideo();
 
     window.setAudio(true);
     v.play().catch(function () {

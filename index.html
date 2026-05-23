@@ -28,34 +28,34 @@
   --stable-vh: 100svh;
 
   /* Faint Purple Luxury Theme */
-  --cream: #FCFAFD;
-  --cream-2: #F8F4FB;
-  --cream-3: #EFE7F5;
+  --cream: #FAFCFE;
+  --cream-2: #F4F8FC;
+  --cream-3: #EAF1F8;
 
-  --sage: #D9C8E8;
-  --sage-dark: #9C7AB8;
-  --sage-deep: #6E4E85;
+  --sage: #C7DDEE;
+  --sage-dark: #6F95B8;
+  --sage-deep: #486A8B;
 
-  --sage-light: #E9DDF3;
-  --sage-pale: #FBF8FD;
-  --sage-border: #DCCBEA;
+  --sage-light: #DDEAF5;
+  --sage-pale: #F7FBFE;
+  --sage-border: #D3E1EE;
 
   --gold: #D4AF37;
-  --gold-light: #E8CE73;
-  --gold-pale: #F7EFC8;
+  --gold-light: #E5C86A;
+  --gold-pale: #F6F0D5;
 
-  --text-dark: #2F2A35;
-  --text-mid: #61586B;
-  --text-light: #8F8797;
+  --text-dark: #263445;
+  --text-mid: #5F7083;
+  --text-light: #8B9AAF;
 
-  --border: #E9DFF1;
+  --border: #E2EBF3;
   --white: #FFFFFF;
 
   --shadow:
-    0 24px 64px -12px rgba(110,78,133,.14);
+    0 24px 64px -12px rgba(72,106,139,.14);
 
   --shadow-sm:
-    0 8px 24px rgba(110,78,133,.08);
+    0 8px 24px rgba(72,106,139,.08);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -71,12 +71,12 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
 .shimmer{
 background:linear-gradient(
 105deg,
-#6E4E85 15%,
-#9C7AB8 30%,
-#D9C8E8 45%,
-#C6B0DB 55%,
-#9C7AB8 70%,
-#6E4E85 85%
+#486A8B 15%,
+#6F95B8 30%,
+#C7DDEE 45%,
+#DDEAF5 55%,
+#6F95B8 70%,
+#486A8B 85%
 );background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4.5s linear infinite}
 @keyframes shimmer{to{background-position:200% center}}
 
@@ -95,7 +95,7 @@ background:linear-gradient(
 .entry-gate-container {
   position: fixed;
   inset: 0;
-  background-color: #22182D; 
+  background-color: #20354A; 
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -129,7 +129,7 @@ inset:0;
 background:
 radial-gradient(
 ellipse 120% 80% at 50% 0%,
-rgba(217,200,232,.22) 0%,
+rgba(199,221,238,.24) 0%,
 transparent 65%
 )
 }
@@ -140,7 +140,7 @@ transparent 65%
 .hero-corner span::before{bottom:0;left:0;border-width:0 0 2px 2px}
 .hero-corner span::after{bottom:0;right:0;border-width:0 2px 2px 0}
 
-.hero-card{position:relative;z-index:3;max-width:620px;width:100%;background:rgba(253,251,247,.93);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(212,175,55,.32);border-radius:2.2rem;padding:clamp(3rem,6vw,4rem) clamp(1.5rem,5vw,3rem);box-shadow:var(--shadow),0 0 0 4px rgba(226,180,177,.15) inset;text-align:center;display:flex;flex-direction:column;align-items:center;overflow:visible}
+.hero-card{position:relative;z-index:3;max-width:620px;width:100%;background:rgba(253,251,247,.93);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(212,175,55,.32);border-radius:2.2rem;padding:clamp(3rem,6vw,4rem) clamp(1.5rem,5vw,3rem);box-shadow:var(--shadow),0 0 0 4px rgba(199,221,238,.22) inset;text-align:center;display:flex;flex-direction:column;align-items:center;overflow:visible}
 
 .hero-icon{width:90px;height:90px;margin-bottom:1.5rem;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 6px 18px rgba(212,175,55,0.4));
   object-fit:contain;}
@@ -353,7 +353,7 @@ data-autoplay-fix="true"
 
       <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Hemadri%20%26%20Ravindra/GAnesha%20Icon.png" alt="Ganesha Icon" class="hero-icon">
 
-      <p class="intro-text">With love and blessing,<br>Mrs Meena and Mr Udaykumar Lende<br><br>cordially invite you to the wedding celebration of their daughter</p>
+      <p class="intro-text">With love and blessing,<br>Mrs Meena and Mr Udaykumar Lende<br><br>cordially invite you to the wedding celebration of their son</p>
 
       <span class="couple-name shimmer">Akash</span>
 
@@ -802,11 +802,11 @@ document.getElementById('audio-btn').addEventListener('click', () => window.setA
 
   // Soft Pastel & Gold Palette for Meenal & Avinash
   const COLORS = [
-'#E9DDF3',
-'#D9C8E8',
-'#C9B2DE',
+'#DDEAF5',
+'#C7DDEE',
+'#B6D0E5',
 '#FFFFFF',
-'#F3EBFA'
+'#EDF6FD'
 ];
   const petals = [];
   
@@ -884,9 +884,9 @@ function setupScratch(canvasId, num, onDone) {
     cvs.width=W*dpr; cvs.height=H*dpr;
     ctx.scale(dpr,dpr);
     const g=ctx.createLinearGradient(0,0,W,H);
-    g.addColorStop(0,'#DCCBEA');
-    g.addColorStop(.5,'#9C7AB8');
-    g.addColorStop(1,'#DCCBEA');
+    g.addColorStop(0,'#DDEAF5');
+    g.addColorStop(.5,'#6F95B8');
+    g.addColorStop(1,'#DDEAF5');
     ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
     ctx.font="italic 600 13px 'Cormorant Garamond'";
     ctx.fillStyle='rgba(255,255,255,.9)'; ctx.textAlign='center'; ctx.textBaseline='middle';
@@ -944,8 +944,8 @@ function onAllScratched() {
     el.classList.add('visible');
     initCountdown(); initPolaroids(); initReveal();
     const COLS=[
-'#D9C8E8',
-'#9C7AB8',
+'#C7DDEE',
+'#6F95B8',
 '#D4AF37',
 '#6E4E85'
 ];

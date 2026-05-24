@@ -144,10 +144,11 @@ body.entry-active {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
   background:
-    radial-gradient(ellipse 90% 70% at 50% 45%, rgba(199, 221, 238, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 30%, rgba(15, 28, 42, 0.72) 100%);
+    linear-gradient(180deg, rgba(12, 22, 34, 0.72) 0%, rgba(12, 22, 34, 0.28) 38%, rgba(12, 22, 34, 0.28) 62%, rgba(12, 22, 34, 0.78) 100%),
+    radial-gradient(ellipse 85% 55% at 50% 42%, rgba(199, 221, 238, 0.14) 0%, transparent 70%);
   transition: opacity 0.55s ease, visibility 0.55s ease;
 }
 .entry-play-overlay.is-hidden {
@@ -155,92 +156,49 @@ body.entry-active {
   visibility: hidden;
   pointer-events: none;
 }
-.entry-play-card {
-  position: relative;
-  width: min(92vw, 380px);
-  padding: clamp(2rem, 6vw, 2.75rem) clamp(1.5rem, 5vw, 2.25rem) clamp(1.75rem, 5vw, 2.25rem);
+.entry-play-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  background: linear-gradient(165deg, rgba(253, 251, 247, 0.97) 0%, rgba(244, 248, 252, 0.94) 48%, rgba(234, 241, 248, 0.92) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  border-radius: 1.75rem;
-  box-shadow:
-    0 28px 80px rgba(8, 18, 32, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.5) inset,
-    0 0 48px rgba(212, 175, 55, 0.12);
-  animation: entryCardFloat 5s ease-in-out infinite;
+  width: 100%;
+  max-width: 100%;
+  padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
+  animation: entryContentFade 1.2s ease-out both;
 }
-@keyframes entryCardFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+@keyframes entryContentFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.entry-play-corners {
-  position: absolute;
-  inset: 0.85rem;
-  pointer-events: none;
-}
-.entry-play-corners::before,
-.entry-play-corners::after,
-.entry-play-corners span::before,
-.entry-play-corners span::after {
-  content: '';
-  position: absolute;
-  width: 38px;
-  height: 38px;
-  border-color: var(--gold);
-  border-style: solid;
-  opacity: 0.85;
-}
-.entry-play-corners::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
-.entry-play-corners::after { top: 0; right: 0; border-width: 2px 2px 0 0; }
-.entry-play-corners span::before { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
-.entry-play-corners span::after { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
 .entry-play-eyebrow {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.78rem;
+  font-size: clamp(0.72rem, 2.8vw, 0.85rem);
   font-weight: 600;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.65rem;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
 }
 .entry-play-title {
   font-family: 'Pinyon Script', cursive;
-  font-size: clamp(2.4rem, 9vw, 3.2rem);
+  font-size: clamp(2.75rem, 11vw, 4.25rem);
   font-weight: 400;
-  line-height: 1.15;
-  color: var(--sage-dark);
-  margin-bottom: 0.35rem;
+  line-height: 1.12;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.5);
 }
 .entry-play-title span {
-  font-size: 0.72em;
-  color: var(--gold);
-  padding: 0 0.15em;
-}
-.entry-play-divider {
-  width: 72px;
-  height: 1px;
-  margin: 0.85rem auto 1.35rem;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  position: relative;
-}
-.entry-play-divider::after {
-  content: '✦';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 0.65rem;
-  color: var(--gold);
-  background: rgba(253, 251, 247, 0.95);
-  padding: 0 0.45rem;
-  line-height: 1;
+  font-size: 0.7em;
+  color: var(--gold-light);
+  padding: 0 0.12em;
 }
 .entry-play-btn-wrap {
   position: relative;
   width: fit-content;
-  margin: 0 auto 1.1rem;
+  margin: 0 auto 1rem;
 }
 .entry-play-ring {
   position: absolute;
@@ -297,24 +255,26 @@ body.entry-active {
 }
 .entry-play-label {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
   font-weight: 600;
   font-style: italic;
-  letter-spacing: 0.12em;
-  color: var(--sage-deep);
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.92);
   margin: 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }
 .entry-play-hint {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--text-light);
-  margin-top: 0.45rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 0.5rem;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
 @media (prefers-reduced-motion: reduce) {
-  .entry-play-card,
+  .entry-play-content,
   .entry-play-ring {
     animation: none;
   }
@@ -548,20 +508,16 @@ transparent 65%
   <div class="entry-video-frame" aria-hidden="true">
     <video
       id="entry-video"
-      src="assets/entry.mp4"
-      poster="placeholder-poster.jpg"
       playsinline
       webkit-playsinline
       muted
-      preload="auto"
+      preload="metadata"
     ></video>
   </div>
   <div id="entry-play-overlay" class="entry-play-overlay">
-    <div class="entry-play-card">
-      <div class="entry-play-corners"><span></span></div>
+    <div class="entry-play-content">
       <p class="entry-play-eyebrow">You're invited</p>
       <h2 class="entry-play-title">H <span>&</span> A</h2>
-      <div class="entry-play-divider" aria-hidden="true"></div>
       <div class="entry-play-btn-wrap">
         <span class="entry-play-ring" aria-hidden="true"></span>
         <span class="entry-play-ring entry-play-ring--delay" aria-hidden="true"></span>
@@ -572,6 +528,7 @@ transparent 65%
         </button>
       </div>
       <p class="entry-play-label">Tap to begin</p>
+      <p class="entry-play-hint">Video · Music</p>
     </div>
   </div>
 </div>
@@ -737,7 +694,7 @@ transparent 65%
         <div class="evt-card reveal reveal-d1">
           <div class="evt-info">
             <span class="evt-name">Haldi</span>
-            <span class="evt-time">7:00 PM</span>
+            <span class="evt-time">4:00 PM</span>
  
             <span class="evt-desc">“Keep calm & put haldi on!”</span>
           </div>
@@ -789,8 +746,8 @@ transparent 65%
     <section id="footer-section">
       <div class="tc reveal">
         <p class="footer-msg">
-          Your presence will turn this real-life romance into a blockbuster we’ll never forget.<br><br>
-          Come, dance, laugh, and celebrate with us in true Bollywood style!
+          Your presence will grace our sacred union with the warmth of love and positivity.
+          Come, bestow your blessings, share our joy, and celebrate our traditional roots with us!
         </p>
         <span style="font-family:'Cormorant Garamond',serif;font-size:.85rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text-mid);display:block;margin-bottom:1rem;">Warm regards,</span>
         <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--sage-dark);font-style:italic;display:block;">Mrs Meena and Mr Udaykumar Lende and family</span>
@@ -875,6 +832,20 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!v || !playBtn) return;
 
   var videoFrame = document.querySelector('.entry-video-frame');
+  var ENTRY_VIDEOS = {
+    portrait: 'assets/portrait.mp4',
+    landscape: 'assets/landscape.mp4'
+  };
+  var started = false;
+
+  function isPortraitLayout() {
+    return window.matchMedia('(orientation: portrait)').matches
+      || window.innerHeight > window.innerWidth;
+  }
+
+  function getEntryVideoSrc() {
+    return isPortraitLayout() ? ENTRY_VIDEOS.portrait : ENTRY_VIDEOS.landscape;
+  }
 
   function syncEntryViewport() {
     var h = window.innerHeight + 'px';
@@ -903,16 +874,32 @@ document.addEventListener('DOMContentLoaded', function () {
     v.style.transform = 'translate(-50%, -50%)';
   }
 
-  syncEntryViewport();
-  window.addEventListener('resize', function () {
+  function setEntryVideoSource() {
+    var nextSrc = getEntryVideoSrc();
+    if (v.dataset.activeSrc === nextSrc) return;
+
+    v.dataset.activeSrc = nextSrc;
+    v.src = nextSrc;
+    v.load();
+    v.addEventListener('loadedmetadata', fitEntryVideo, { once: true });
+  }
+
+  function onEntryLayoutChange() {
     syncEntryViewport();
-    fitEntryVideo();
-  }, { passive: true });
-  window.addEventListener('orientationchange', function () {
-    setTimeout(function () {
-      syncEntryViewport();
+    if (!started) {
+      setEntryVideoSource();
+    } else {
       fitEntryVideo();
-    }, 200);
+    }
+  }
+
+  document.body.classList.add('entry-active');
+  setEntryVideoSource();
+  syncEntryViewport();
+
+  window.addEventListener('resize', onEntryLayoutChange, { passive: true });
+  window.addEventListener('orientationchange', function () {
+    setTimeout(onEntryLayoutChange, 200);
   });
 
   v.addEventListener('loadedmetadata', fitEntryVideo);
@@ -920,10 +907,6 @@ document.addEventListener('DOMContentLoaded', function () {
     syncEntryViewport();
     fitEntryVideo();
   }, { once: true });
-  if (v.readyState >= 1) fitEntryVideo();
-
-  document.body.classList.add('entry-active');
-  var started = false;
 
   function openMainSite() {
     gate.style.transition = 'opacity .8s ease';
@@ -945,18 +928,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function startEntryMedia() {
     if (started) return;
-    started = true;
 
     if (playOverlay) playOverlay.classList.add('is-hidden');
-
     syncEntryViewport();
-    fitEntryVideo();
+    v.preload = 'auto';
 
-    window.setAudio(true);
-    v.play().catch(function () {
-      started = false;
-      if (playOverlay) playOverlay.classList.remove('is-hidden');
-    });
+    function beginPlayback() {
+      started = true;
+      fitEntryVideo();
+      window.setAudio(true);
+      v.play().catch(function () {
+        started = false;
+        if (playOverlay) playOverlay.classList.remove('is-hidden');
+      });
+    }
+
+    var nextSrc = getEntryVideoSrc();
+    if (v.dataset.activeSrc !== nextSrc) {
+      v.dataset.activeSrc = nextSrc;
+      v.src = nextSrc;
+      v.load();
+      v.addEventListener('loadedmetadata', beginPlayback, { once: true });
+      return;
+    }
+
+    beginPlayback();
   }
 
   playBtn.addEventListener('click', function (e) {
